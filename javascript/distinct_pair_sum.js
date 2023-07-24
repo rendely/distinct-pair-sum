@@ -1,5 +1,17 @@
 function distinctPairSum(arr, k) {
-  // type your code here
+  let results = [];
+  let usedNumbers = new Set();
+  // loop through array to second last item
+  for (let i = 0; i < arr.length -1; i++){
+    if (usedNumbers.has(arr[i])) { /* do nothing */} 
+    else if (arr[i]+arr[i+1] == k) {
+      results.push([arr[i], arr[i+1]]);
+      usedNumbers.add(arr[i]);
+      usedNumbers.add(arr[i+1]);
+    }
+  }
+  return results;
+  
 }
 
 if (require.main === module) {
@@ -17,3 +29,4 @@ module.exports = distinctPairSum;
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
+
